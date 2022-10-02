@@ -31,7 +31,6 @@ function random(min, max) {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// create generatePassword function
 // present user with prompts for password criteria
 // prompt user for length of password (min 8 max 128)
 // prompt user character types:
@@ -45,15 +44,6 @@ generateBtn.addEventListener("click", writePassword);
 // we reach the selected password length
 
 function generatePassword () {
-  let chosenLength = window.prompt("Please enter your desired password length.");
-
-// let lowerCaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", 'j', "k", "l", "m", 
-//   "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-// let upperCaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-//   "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-// let numericChar = ["0","1","2","3","4","5","6","7","8","9"]
-// let specialChar = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-',
-//   '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '\\','^','_', '`', '{', '|', '}','~']
 
   let characterBank = {
     lower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", 'j', "k", "l", "m", 
@@ -90,11 +80,14 @@ function generatePassword () {
       return availableCharacters
     }
   }
-  var testBank = characterBank.selectType(["lower", "special"])
-  console.log("logging testBank " + testBank)
-  console.log(typeof testBank)
+
+  // var testBank = characterBank.selectType("lower", "special")
+  // console.log("logging testBank " + testBank)
+  // console.log(typeof testBank)
 
   //console.log(characterBank.lower, characterBank.upper, characterBank.numeric, characterBank.special)
+  let chosenLength = window.prompt("Please enter your desired password length.");
+
   if (chosenLength === "") {
     window.alert("You must choose a password length!")
 
