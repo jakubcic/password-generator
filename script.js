@@ -122,23 +122,17 @@ function generatePassword () {
     if (confirmLowerCase) {
       // use the method created in the characterBank object to select the character sets
       // availableCharacters will be an array of all possible characters based on the user's choices
-      console.log(characterBank.selectType("lower"))
       availableCharacters.push(...characterBank.selectType("lower"))
     }
     if (confirmUpperCase) {
-      console.log(characterBank.selectType("upper"))
       availableCharacters.push(...characterBank.selectType("upper"))
     }
     if (confirmNumeric) {
-      console.log(characterBank.selectType("numeric"))
       availableCharacters.push(...characterBank.selectType("numeric"))
     }
     if (confirmSpecial) {
-      console.log(characterBank.selectType("special"))
       availableCharacters.push(...characterBank.selectType("special"))
     }
-
-    console.log(availableCharacters)
 
     function constrcutPassword () {
       let randomPassword = ""
