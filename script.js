@@ -36,8 +36,8 @@ generateBtn.addEventListener("click", writePassword);
 // prompt user character types:
 // confirm lowercase, uppercase, numeric, special characters
 // (save those each in their own array and generate password
-// by randonly selecting from them based on prompt answers)
-// AT LEAST 1 character type should be selected
+// by randomly selecting from them based on prompt answers)
+// AT LEAST 1 character type should be selected (alert if not)
 // after the prompts are answered, generate the password
 // combine each array into a single one (depending on which
 // were chosen) and randomly select each character until 
@@ -56,6 +56,7 @@ function generatePassword () {
 
     special: ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-',
       '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '\\','^','_', '`', '{', '|', '}','~'],
+
     // idea: add a method for creating an array from the character bank with only 
     // selected character types, i.e. call characterBank.selectType(lower, upper, special)
     // and it returns an array with only those characters
@@ -81,18 +82,14 @@ function generatePassword () {
     }
   }
 
-  // var testBank = characterBank.selectType("lower", "special")
-  // console.log("logging testBank " + testBank)
-  // console.log(typeof testBank)
 
-  //console.log(characterBank.lower, characterBank.upper, characterBank.numeric, characterBank.special)
   let chosenLength = window.prompt("Please enter your desired password length.");
 
   if (chosenLength === "") {
     window.alert("You must choose a password length!")
 
   } else if (chosenLength != null) {
-    //console.log(chosenLength)
+
     if (isNaN(chosenLength)) {
       chosenLength = window.prompt("Your input must be a number.")
     }
@@ -112,8 +109,6 @@ function generatePassword () {
     let confirmSpecial = window.confirm(
       "Would you like your password to contain special characters?\nClick OK to include special characters.\nClick Cancel to decline.")
 
-    //console.log(confirmLowerCase, confirmUpperCase, confirmNumeric, confirmSpecial)
-
     if (!confirmLowerCase && !confirmUpperCase && !confirmNumeric && !confirmSpecial){
       window.alert("Your password must include at least one character type!")
     }
@@ -126,6 +121,7 @@ function generatePassword () {
 
     if (confirmLowerCase) {
       // use the method created in the characterBank object to select the character sets
+      // availableCharacters will be an array of all possible characters based on the user's choices
       console.log(characterBank.selectType("lower"))
       availableCharacters.push(...characterBank.selectType("lower"))
     }
@@ -155,10 +151,7 @@ function generatePassword () {
     }
 
     let chosenPassword = constrcutPassword ()
-    // check if chosenPassword contains at least 1 character from each character type
-    if (chosenPassword){
 
-    }
     return chosenPassword
 
   } else {
