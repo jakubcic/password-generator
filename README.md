@@ -15,6 +15,8 @@ Next the `availableCharacters` array is constructed based on the chosen characte
 
 The password generated is then written to the `<textarea>` in the HTML using `document.querySelector`.
 
+[The application can be accessed here.](https://jakubcic.github.io/password-generator/)
+
 ## Application Preview
 
 ![Application](./assets/image.PNG)
